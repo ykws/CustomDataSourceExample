@@ -1,5 +1,6 @@
 # Custom DataSource Example
 
+[![CI](https://github.com/ykws/CustomDataSourceExample/actions/workflows/xcode.yml/badge.svg)](https://github.com/ykws/CustomDataSourceExample/actions/workflows/xcode.yml)
 [![macOS](https://img.shields.io/badge/macOS-BigSur-black)](https://developer.apple.com/macos/)
 [![Xcode](https://img.shields.io/badge/Xcode-12.4-blue.svg)](https://developer.apple.com/xcode)
 
