@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild -sdk simulator -configuration Debug build
+      run: xcodebuild -sdk iphonesimulator14.4 -configuration Debug build
