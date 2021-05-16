@@ -1,5 +1,8 @@
 # Custom DataSource Example
 
+[![macOS](https://img.shields.io/badge/macOS-BigSur-black)](https://developer.apple.com/macos/)
+[![Xcode](https://img.shields.io/badge/Xcode-12.4-blue.svg)](https://developer.apple.com/xcode)
+
 CustomView に対して UITableView と同じように DataSource protocol を提供するとしたら、どのように実現できるか検証します。
 
 UITableView では Cell という繰り返し表示する要素に対して、 DataSource protocol を通し、任意のデータを表示できるように、そのデータの設定を委譲しています。
