@@ -32,16 +32,10 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpG-XX-4Hb">
                             <rect key="frame" x="0.0" y="0.0" width="103.5" height="30"/>
                             <state key="normal" title="Up"/>
-                            <connections>
-                                <action selector="countUp:" destination="-1" eventType="touchUpInside" id="AfV-YU-CYG"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-sZ-TvG">
                             <rect key="frame" x="103.5" y="0.0" width="103.5" height="30"/>
                             <state key="normal" title="Down"/>
-                            <connections>
-                                <action selector="countDown:" destination="-1" eventType="touchUpInside" id="3W8-8b-mOy"/>
-                            </connections>
                         </button>
                     </subviews>
                 </stackView>

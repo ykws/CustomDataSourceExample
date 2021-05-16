@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var count: Int = 0
+    private let count = BehaviorRelay(value: 0)
+    private let disposeBag = DisposeBag()
     
     // MARK: - Outlets
     
@@ -22,47 +25,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customView.dataSource = self
-        customView.delegate = self
+        count.map { String($0) }
+            .bind(to: customView.counter.rx.text)
+            .disposed(by: disposeBag)
         
-        customView.reloadData()
-    }
-
-}
-
-// MARK: - Custom View DataSource
-
-extension ViewController: CustomViewDataSource {
-    
-    func customView(_ customView: CustomView, label: UILabel) -> UILabel {
-        label.text = String(count)
-        return label
-    }
-    
-    func customView(_ customView: CustomView, upButton: UIButton) -> UIButton {
-        upButton.isEnabled = count < 9
-        return upButton
-    }
-    
-    func customView(_ customView: CustomView, downButton: UIButton) -> UIButton {
-        downButton.isEnabled = count > 0
-        return downButton
-    }
-
-}
-
-// MARK: - Custom View Delegate
-
-extension ViewController: CustomViewDelegate {
-    
-    func customView(_ customView: CustomView, didSelectCountUp: Void) {
-        count += 1
-        customView.reloadData()
-    }
-    
-    func customView(_ customView: CustomView, didSelectCountDown: Void) {
-        count -= 1
-        customView.reloadData()
+        count.map { $0 < 9 }
+            .bind(to: customView.upButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        count.map { $0 > 0 }
+            .bind(to: customView.downButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        customView.upButton.rx.tap
+            .subscribe { [unowned self] _ in
+                count.accept(count.value + 1)
+            }
+            .disposed(by: disposeBag)
+        
+        customView.downButton.rx.tap
+            .subscribe { [unowned self] _ in
+                count.accept(count.value - 1)
+            }
+            .disposed(by: disposeBag)
     }
 
 }
