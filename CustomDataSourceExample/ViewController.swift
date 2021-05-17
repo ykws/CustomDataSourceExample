@@ -11,8 +11,12 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var count: Int = 0
+    private var presenter: CustomViewPresenterInput!
     
+    func inject(presenter: CustomViewPresenterInput) {
+        self.presenter = presenter
+    }
+
     // MARK: - Outlets
     
     @IBOutlet weak var customView: CustomView!
@@ -21,6 +25,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        inject(presenter: CustomViewPresenter.init(view: self))
         
         customView.dataSource = self
         customView.delegate = self
@@ -35,17 +41,17 @@ class ViewController: UIViewController {
 extension ViewController: CustomViewDataSource {
     
     func customView(_ customView: CustomView, label: UILabel) -> UILabel {
-        label.text = String(count)
+        label.text = String(presenter.count)
         return label
     }
     
     func customView(_ customView: CustomView, upButton: UIButton) -> UIButton {
-        upButton.isEnabled = count < 9
+        upButton.isEnabled = presenter.countUppable
         return upButton
     }
     
     func customView(_ customView: CustomView, downButton: UIButton) -> UIButton {
-        downButton.isEnabled = count > 0
+        downButton.isEnabled = presenter.countDownable
         return downButton
     }
 
@@ -56,12 +62,20 @@ extension ViewController: CustomViewDataSource {
 extension ViewController: CustomViewDelegate {
     
     func customView(_ customView: CustomView, didSelectCountUp: Void) {
-        count += 1
-        customView.reloadData()
+        presenter.didSelectUpButton()
     }
     
     func customView(_ customView: CustomView, didSelectCountDown: Void) {
-        count -= 1
+        presenter.didSelectDownButton()
+    }
+
+}
+
+// MARK: - Custom View Presenter Output
+
+extension ViewController: CustomViewPresenterOutput {
+
+    func updateCount(_ count: Int) {
         customView.reloadData()
     }
 
