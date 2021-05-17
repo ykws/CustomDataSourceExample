@@ -13,10 +13,11 @@
 		08FECE06264F8CC4001698A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FECE04264F8CC4001698A4 /* Main.storyboard */; };
 		08FECE08264F8CC4001698A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08FECE07264F8CC4001698A4 /* Assets.xcassets */; };
 		08FECE0B264F8CC4001698A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FECE09264F8CC4001698A4 /* LaunchScreen.storyboard */; };
-		08FECE16264F8CC4001698A4 /* CustomDataSourceExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE15264F8CC4001698A4 /* CustomDataSourceExampleTests.swift */; };
+		08FECE16264F8CC4001698A4 /* CustomViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE15264F8CC4001698A4 /* CustomViewPresenterTests.swift */; };
 		08FECE21264F8CC4001698A4 /* CustomDataSourceExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE20264F8CC4001698A4 /* CustomDataSourceExampleUITests.swift */; };
 		08FECE33264F8CE4001698A4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE32264F8CE4001698A4 /* CustomView.swift */; };
 		08FECE3B264F8CF2001698A4 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FECE3A264F8CF2001698A4 /* CustomView.xib */; };
+		08FECE652652C19F001698A4 /* CustomViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE642652C19F001698A4 /* CustomViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +47,14 @@
 		08FECE0A264F8CC4001698A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08FECE0C264F8CC4001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08FECE11264F8CC4001698A4 /* CustomDataSourceExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomDataSourceExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08FECE15264F8CC4001698A4 /* CustomDataSourceExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataSourceExampleTests.swift; sourceTree = "<group>"; };
+		08FECE15264F8CC4001698A4 /* CustomViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewPresenterTests.swift; sourceTree = "<group>"; };
 		08FECE17264F8CC4001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08FECE1C264F8CC4001698A4 /* CustomDataSourceExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomDataSourceExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08FECE20264F8CC4001698A4 /* CustomDataSourceExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataSourceExampleUITests.swift; sourceTree = "<group>"; };
 		08FECE22264F8CC4001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08FECE32264F8CE4001698A4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		08FECE3A264F8CF2001698A4 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		08FECE642652C19F001698A4 /* CustomViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		08FECDFD264F8CC4001698A4 /* CustomDataSourceExample */ = {
 			isa = PBXGroup;
 			children = (
+				08FECE632652C18A001698A4 /* Presenter */,
 				08FECE31264F8CD5001698A4 /* CustomView */,
 				08FECDFE264F8CC4001698A4 /* AppDelegate.swift */,
 				08FECE00264F8CC4001698A4 /* SceneDelegate.swift */,
@@ -118,7 +121,7 @@
 		08FECE14264F8CC4001698A4 /* CustomDataSourceExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				08FECE15264F8CC4001698A4 /* CustomDataSourceExampleTests.swift */,
+				08FECE15264F8CC4001698A4 /* CustomViewPresenterTests.swift */,
 				08FECE17264F8CC4001698A4 /* Info.plist */,
 			);
 			path = CustomDataSourceExampleTests;
@@ -140,6 +143,14 @@
 				08FECE3A264F8CF2001698A4 /* CustomView.xib */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		08FECE632652C18A001698A4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				08FECE642652C19F001698A4 /* CustomViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				08FECE33264F8CE4001698A4 /* CustomView.swift in Sources */,
 				08FECDFF264F8CC4001698A4 /* AppDelegate.swift in Sources */,
 				08FECE01264F8CC4001698A4 /* SceneDelegate.swift in Sources */,
+				08FECE652652C19F001698A4 /* CustomViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08FECE16264F8CC4001698A4 /* CustomDataSourceExampleTests.swift in Sources */,
+				08FECE16264F8CC4001698A4 /* CustomViewPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
