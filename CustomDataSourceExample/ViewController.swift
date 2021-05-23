@@ -6,12 +6,9 @@
 //
 
 import UIKit
+import ReSwift
 
 class ViewController: UIViewController {
-    
-    // MARK: - Properties
-    
-    private var count: Int = 0
     
     // MARK: - Outlets
     
@@ -22,31 +19,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customView.dataSource = self
         customView.delegate = self
         
-        customView.reloadData()
-    }
-
-}
-
-// MARK: - Custom View DataSource
-
-extension ViewController: CustomViewDataSource {
-    
-    func customView(_ customView: CustomView, label: UILabel) -> UILabel {
-        label.text = String(count)
-        return label
+        mainStore.dispatch(CounterActionInitialize())
     }
     
-    func customView(_ customView: CustomView, upButton: UIButton) -> UIButton {
-        upButton.isEnabled = count < 9
-        return upButton
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainStore.subscribe(self)
     }
     
-    func customView(_ customView: CustomView, downButton: UIButton) -> UIButton {
-        downButton.isEnabled = count > 0
-        return downButton
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainStore.unsubscribe(self)
     }
 
 }
@@ -56,13 +41,23 @@ extension ViewController: CustomViewDataSource {
 extension ViewController: CustomViewDelegate {
     
     func customView(_ customView: CustomView, didSelectCountUp: Void) {
-        count += 1
-        customView.reloadData()
+        mainStore.dispatch(CounterActionIncrease())
     }
     
     func customView(_ customView: CustomView, didSelectCountDown: Void) {
-        count -= 1
-        customView.reloadData()
+        mainStore.dispatch(CounterActionDecrease())
+    }
+
+}
+
+// MARK: - Store Subscriber
+
+extension ViewController: StoreSubscriber {
+
+    func newState(state: AppState) {
+        customView.counter.text = "\(state.counter)"
+        customView.upButton.isEnabled = state.increasable
+        customView.downButton.isEnabled = state.decreasable
     }
 
 }
