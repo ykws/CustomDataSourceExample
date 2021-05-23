@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		08FECE21264F8CC4001698A4 /* CustomDataSourceExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE20264F8CC4001698A4 /* CustomDataSourceExampleUITests.swift */; };
 		08FECE33264F8CE4001698A4 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE32264F8CE4001698A4 /* CustomView.swift */; };
 		08FECE3B264F8CF2001698A4 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FECE3A264F8CF2001698A4 /* CustomView.xib */; };
+		08FECE772652DC80001698A4 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 08FECE762652DC80001698A4 /* ReSwift */; };
+		08FECE7D2652DCDA001698A4 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FECE7C2652DCDA001698A4 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		08FECE22264F8CC4001698A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08FECE32264F8CE4001698A4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		08FECE3A264F8CF2001698A4 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		08FECE7C2652DCDA001698A4 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08FECE772652DC80001698A4 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +107,7 @@
 		08FECDFD264F8CC4001698A4 /* CustomDataSourceExample */ = {
 			isa = PBXGroup;
 			children = (
+				08FECE7B2652DC98001698A4 /* State */,
 				08FECE31264F8CD5001698A4 /* CustomView */,
 				08FECDFE264F8CC4001698A4 /* AppDelegate.swift */,
 				08FECE00264F8CC4001698A4 /* SceneDelegate.swift */,
@@ -142,6 +147,14 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		08FECE7B2652DC98001698A4 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				08FECE7C2652DCDA001698A4 /* AppState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +171,9 @@
 			dependencies = (
 			);
 			name = CustomDataSourceExample;
+			packageProductDependencies = (
+				08FECE762652DC80001698A4 /* ReSwift */,
+			);
 			productName = CustomDataSourceExample;
 			productReference = 08FECDFB264F8CC4001698A4 /* CustomDataSourceExample.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +245,9 @@
 				Base,
 			);
 			mainGroup = 08FECDF2264F8CC4001698A4;
+			packageReferences = (
+				08FECE752652DC80001698A4 /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = 08FECDFC264F8CC4001698A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08FECE03264F8CC4001698A4 /* ViewController.swift in Sources */,
+				08FECE7D2652DCDA001698A4 /* AppState.swift in Sources */,
 				08FECE33264F8CE4001698A4 /* CustomView.swift in Sources */,
 				08FECDFF264F8CC4001698A4 /* AppDelegate.swift in Sources */,
 				08FECE01264F8CC4001698A4 /* SceneDelegate.swift in Sources */,
@@ -609,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		08FECE752652DC80001698A4 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		08FECE762652DC80001698A4 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08FECE752652DC80001698A4 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08FECDF3264F8CC4001698A4 /* Project object */;
 }
